@@ -26,7 +26,7 @@ namespace engine.tests
     {
         public int CalculatePrice(Basket basket)
         {
-            return -1;
+            return 0;
         }
     }
 }
