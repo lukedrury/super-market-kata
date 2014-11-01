@@ -16,10 +16,26 @@ namespace engine.tests
             var expected = 0;
             Assert.That(total, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void SingleItemInBasket()
+        {
+            var till = new Till();
+            var basket = new Basket();
+            basket.Add("pennySweet", 1);
+
+            var total = till.CalculatePrice(basket);
+
+            var expected = 1;
+            Assert.That(total, Is.EqualTo(expected));
+        }
     }
 
     public class Basket
     {
+        public void Add(string item, int unitPrice)
+        {
+        }
     }
 
     public class Till
