@@ -33,8 +33,23 @@ namespace engine.tests
 
     public class Basket
     {
+        private readonly IList<BasketItem> items = new List<BasketItem>();
+
         public void Add(string item, int unitPrice)
         {
+            items.Add(new BasketItem(item, unitPrice));
+        }
+    }
+
+    public class BasketItem
+    {
+        public string Item { get; private set; }
+        public int UnitPrice { get; private set; }
+
+        public BasketItem(string item, int unitPrice)
+        {
+            Item = item;
+            UnitPrice = unitPrice;
         }
     }
 
