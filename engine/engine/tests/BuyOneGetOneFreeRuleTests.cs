@@ -6,13 +6,14 @@ namespace engine.tests
     [TestFixture]
     public class BuyOneGetOneFreeRuleTests
     {
+        private Basket m_InputBasket;
+
         [Test]
         public void EmptyBasket()
         {
-            var inputBasket = new Basket();
             var rule = new BuyOneGetOneFreeRule("item");
 
-            var returnedBasket = rule.Apply(inputBasket);
+            var returnedBasket = rule.Apply(m_InputBasket);
 
             var expectedBasket = new Basket();
             Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
@@ -21,15 +22,20 @@ namespace engine.tests
         [Test]
         public void BasketWithSingleUnrelatedItem()
         {
-            var inputBasket = new Basket();
-            inputBasket.Add("apple", 1);
+            m_InputBasket.Add("apple", 1);
             var rule = new BuyOneGetOneFreeRule("item");
 
-            var returnedBasket = rule.Apply(inputBasket);
+            var returnedBasket = rule.Apply(m_InputBasket);
 
             var expectedBasket = new Basket();
             expectedBasket.Add("apple", 1);
             Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
+        }
+
+        [SetUp]
+        public void Setup()
+        {
+            m_InputBasket = new Basket();
         }
     }
 }
