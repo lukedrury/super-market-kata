@@ -49,9 +49,11 @@
     <Compile Include="items\BasketItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rules\BuyOneGetOneFreeRule.cs" />
+    <Compile Include="rules\PercentageDiscount.cs" />
     <Compile Include="rules\Rule.cs" />
     <Compile Include="tests\BasketTests.cs" />
     <Compile Include="tests\BuyOneGetOneFreeRuleTests.cs" />
+    <Compile Include="tests\PercentageDiscountTests.cs" />
     <Compile Include="tests\SupermarketAcceptanceTests.cs" />
     <Compile Include="core\Till.cs" />
   </ItemGroup>
