@@ -5,11 +5,11 @@ namespace engine.rules
 {
     public class BuyOneGetOneFree : Rule
     {
-        private readonly string m_Item;
+        private readonly string m_ApplicableItemName;
 
-        public BuyOneGetOneFree(string item)
+        public BuyOneGetOneFree(string applicableItemName)
         {
-            m_Item = item;
+            m_ApplicableItemName = applicableItemName;
         }
 
         public override Basket Apply(Basket basket)
@@ -19,7 +19,7 @@ namespace engine.rules
             BasketItem previousApplicableItem = null;
             foreach (var item in basket)
             {
-                if (item.Name.Equals(m_Item))
+                if (item.Name.Equals(m_ApplicableItemName))
                 {
                     if (previousApplicableItem == null)
                     {
