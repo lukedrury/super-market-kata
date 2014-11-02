@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "engine", "engine\engine.csproj", "{1CA05073-113E-4107-B071-2AF512D72695}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "supermarketkata", "engine\engine.csproj", "{1CA05073-113E-4107-B071-2AF512D72695}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
