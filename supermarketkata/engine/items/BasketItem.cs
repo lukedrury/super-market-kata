@@ -2,20 +2,20 @@ namespace engine.items
 {
     public class BasketItem
     {
-        public string Item { get; private set; }
+        public string Name { get; private set; }
         public int UnitPrice { get; private set; }
         public bool UsedInOffer { get; set; }
 
-        public BasketItem(string item, int unitPrice, bool usedInOffer = false)
+        public BasketItem(string name, int unitPrice, bool usedInOffer = false)
         {
-            Item = item;
+            Name = name;
             UnitPrice = unitPrice;
             UsedInOffer = usedInOffer;
         }
 
         protected bool Equals(BasketItem other)
         {
-            return string.Equals(Item, other.Item) && UnitPrice == other.UnitPrice;
+            return string.Equals(Name, other.Name) && UnitPrice == other.UnitPrice;
         }
 
         public override bool Equals(object obj)
@@ -30,13 +30,13 @@ namespace engine.items
         {
             unchecked
             {
-                return ((Item != null ? Item.GetHashCode() : 0)*397) ^ UnitPrice;
+                return ((Name != null ? Name.GetHashCode() : 0)*397) ^ UnitPrice;
             }
         }
 
         public override string ToString()
         {
-            return string.Format("{0}:{1}p", Item, UnitPrice);
+            return string.Format("{0}:{1}p", Name, UnitPrice);
         }
     }
 }

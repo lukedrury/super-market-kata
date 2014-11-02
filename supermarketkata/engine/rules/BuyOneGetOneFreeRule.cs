@@ -19,7 +19,7 @@ namespace engine.rules
             BasketItem previousApplicableItem = null;
             foreach (var item in basket)
             {
-                if (item.Item.Equals(m_Item))
+                if (item.Name.Equals(m_Item))
                 {
                     if (previousApplicableItem == null)
                     {
@@ -27,8 +27,8 @@ namespace engine.rules
                     }
                     else
                     {
-                        updatedBasket.Add(new BasketItem(previousApplicableItem.Item, previousApplicableItem.UnitPrice, true), 2);
-                        updatedBasket.Add(new BasketItem(string.Format("{0}:bogof", previousApplicableItem.Item), -1, true));
+                        updatedBasket.Add(new BasketItem(previousApplicableItem.Name, previousApplicableItem.UnitPrice, true), 2);
+                        updatedBasket.Add(new BasketItem(string.Format("{0}:bogof", previousApplicableItem.Name), -1, true));
                         previousApplicableItem = null;
                     }
                 }

@@ -22,7 +22,7 @@ namespace engine.rules
             {
                 discountedBasket.Add(item);
 
-                if (item.Item.Equals(m_Item) && !item.UsedInOffer)
+                if (item.Name.Equals(m_Item) && !item.UsedInOffer)
                 {
                     var discountToApply =  -(int) Math.Ceiling(item.UnitPrice * ((double) m_Percentage / 100));
                     discountedBasket.Add(string.Format("{0}:{1}% discount", m_Item, m_Percentage), discountToApply);
