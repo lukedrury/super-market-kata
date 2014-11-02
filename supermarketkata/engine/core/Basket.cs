@@ -21,7 +21,7 @@ namespace engine.core
 
             for (var i = 0; i < quantity; i++)
             {
-                var cloneBasketItem = new BasketItem(basketItem.Name, basketItem.UnitPrice, basketItem.UsedInOffer);
+                var cloneBasketItem = new BasketItem(basketItem.Name, basketItem.Price, basketItem.UsedInOffer);
                 m_Items.Add(cloneBasketItem);
             }
         }

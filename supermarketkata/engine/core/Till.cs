@@ -14,7 +14,7 @@ namespace engine.core
         public int CalculatePrice(Basket basket, List<Rule> rules)
         {
             var rulesAppliedBasket = rules.Aggregate(basket, (currentBasket, rule) => rule.Apply(currentBasket));
-            return rulesAppliedBasket.Sum(item => item.UnitPrice);
+            return rulesAppliedBasket.Sum(item => item.Price);
         }
     }
 }

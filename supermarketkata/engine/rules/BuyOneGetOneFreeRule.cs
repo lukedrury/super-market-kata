@@ -27,7 +27,7 @@ namespace engine.rules
                     }
                     else
                     {
-                        updatedBasket.Add(new BasketItem(previousApplicableItem.Name, previousApplicableItem.UnitPrice, true), 2);
+                        updatedBasket.Add(new BasketItem(previousApplicableItem.Name, previousApplicableItem.Price, true), 2);
                         updatedBasket.Add(new BasketItem(string.Format("{0}:bogof", previousApplicableItem.Name), -1, true));
                         previousApplicableItem = null;
                     }
