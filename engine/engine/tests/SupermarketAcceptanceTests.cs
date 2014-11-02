@@ -55,7 +55,10 @@ namespace engine.tests
 
         public void Add(string item, int unitPrice, int quantity = 1)
         {
-            m_Items.Add(new BasketItem(item, unitPrice));
+            for (var i = 0; i < quantity; i++)
+            {
+                m_Items.Add(new BasketItem(item, unitPrice));
+            }
         }
 
         public IEnumerator<BasketItem> GetEnumerator()
