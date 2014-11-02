@@ -68,7 +68,19 @@ namespace engine.tests
 
         public override Basket Apply(Basket basket)
         {
-            return basket;
+            var discountedBasket = new Basket();
+
+            foreach (var item in basket)
+            {
+                discountedBasket.Add(item);
+
+                if (item.Item.Equals(m_Item) && !item.UsedInOffer)
+                {
+                    discountedBasket.Add(string.Format("{0}:{1}% discount", m_Item, m_Percentage), -item.UnitPrice);
+                }
+            }
+
+            return discountedBasket;
         }
     }
 }
