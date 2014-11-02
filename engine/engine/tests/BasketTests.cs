@@ -1,4 +1,5 @@
 ﻿using System;
+using engine.core;
 using NUnit.Framework;
 
 namespace engine.tests

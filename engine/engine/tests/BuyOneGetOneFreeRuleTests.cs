@@ -1,4 +1,7 @@
-﻿using NUnit.Framework;
+﻿using engine.core;
+using engine.items;
+using engine.rules;
+using NUnit.Framework;
 
 namespace engine.tests
 {
