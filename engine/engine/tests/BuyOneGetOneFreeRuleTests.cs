@@ -58,6 +58,20 @@ namespace engine.tests
             Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
         }
 
+        [Test]
+        public void BasketWithTwoRelatedItems()
+        {
+            m_InputBasket.Add("item", 1, 2);
+            var rule = new BuyOneGetOneFreeRule("item");
+
+            var returnedBasket = rule.Apply(m_InputBasket);
+
+            var expectedBasket = new Basket();
+            expectedBasket.Add(new BasketItem("item", 1, true), 2);
+            expectedBasket.Add("item:bogof", -1);
+            Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
+        }
+
         [SetUp]
         public void Setup()
         {
