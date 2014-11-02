@@ -64,6 +64,20 @@ namespace engine.tests
             Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
         }
 
+        [Test]
+        public void BasketWithHalfPriceDiscountRule()
+        {
+            var rule = new PercentageDiscount("discountedItem", 50);
+            m_InputBasket.Add("discountedItem", 2);
+
+            var returnedBasket = rule.Apply(m_InputBasket);
+
+            var expectedBasket = new Basket();
+            expectedBasket.Add(new BasketItem("discountedItem", 2, true));
+            expectedBasket.Add(string.Format("discountedItem:{0}% discount", 50), -1);
+            Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
+        }
+
         [SetUp]
         public void Setup()
         {
