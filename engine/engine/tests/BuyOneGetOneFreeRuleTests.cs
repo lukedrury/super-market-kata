@@ -17,5 +17,19 @@ namespace engine.tests
             var expectedBasket = new Basket();
             Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
         }
+
+        [Test]
+        public void BasketWithSingleUnrelatedItem()
+        {
+            var inputBasket = new Basket();
+            inputBasket.Add("apple", 1);
+            var rule = new BuyOneGetOneFreeRule("item");
+
+            var returnedBasket = rule.Apply(inputBasket);
+
+            var expectedBasket = new Basket();
+            expectedBasket.Add("apple", 1);
+            Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
+        }
     }
 }
