@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace engine.tests
 {
@@ -31,13 +32,23 @@ namespace engine.tests
         }
     }
 
-    public class Basket
+    public class Basket : IEnumerable<BasketItem>
     {
         private readonly IList<BasketItem> items = new List<BasketItem>();
 
         public void Add(string item, int unitPrice)
         {
             items.Add(new BasketItem(item, unitPrice));
+        }
+
+        public IEnumerator<BasketItem> GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 
