@@ -115,6 +115,11 @@ namespace engine.tests
             Item = item;
             UnitPrice = unitPrice;
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0}:{1}p", Item, UnitPrice);
+        }
     }
 
     public class Till
