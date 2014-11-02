@@ -68,10 +68,16 @@ namespace engine.tests
         public BuyOneGetOneFreeRule(string item)
         {
         }
+
+        public override Basket Apply(Basket basket)
+        {
+            return null;
+        }
     }
 
     public abstract class Rule
     {
+        public abstract Basket Apply(Basket basket);
     }
 
     public class Basket : IEnumerable<BasketItem>
