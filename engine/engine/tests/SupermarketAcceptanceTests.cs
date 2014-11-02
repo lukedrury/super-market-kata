@@ -42,12 +42,36 @@ namespace engine.tests
             Assert.That(total, Is.EqualTo(expected));
         }
 
+        [Test]
+        public void BuyOneGetOneFree()
+        {
+            m_Basket.Add("pennySweet", 1, 2);
+            var rules = new List<Rule>();
+            rules.Add(new BuyOneGetOneFreeRule("pennySweet"));
+
+            var total = m_Till.CalculatePrice(m_Basket, rules);
+
+            var expected = 1;
+            Assert.That(total, Is.EqualTo(expected));
+        }
+
         [SetUp]
         public void Setup()
         {
             m_Till = new Till();
             m_Basket = new Basket();
         }
+    }
+
+    public class BuyOneGetOneFreeRule : Rule
+    {
+        public BuyOneGetOneFreeRule(string item)
+        {
+        }
+    }
+
+    public abstract class Rule
+    {
     }
 
     public class Basket : IEnumerable<BasketItem>
@@ -90,6 +114,11 @@ namespace engine.tests
     public class Till
     {
         public int CalculatePrice(Basket basket)
+        {
+            return CalculatePrice(basket, new List<Rule>());
+        }
+
+        public int CalculatePrice(Basket basket, List<Rule> rules)
         {
             var total = 0;
 
