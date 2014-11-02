@@ -68,7 +68,14 @@ namespace engine.tests
     {
         public int CalculatePrice(Basket basket)
         {
-            return 0;
+            var total = 0;
+
+            foreach (var item in basket)
+            {
+                total += item.UnitPrice;
+            }
+
+            return total;
         }
     }
 }
