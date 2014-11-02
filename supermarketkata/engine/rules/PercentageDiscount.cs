@@ -24,7 +24,7 @@ namespace engine.rules
 
                 if (item.Name.Equals(m_ApplicableItemName) && !item.UsedInOffer)
                 {
-                    var discountToApply =  -(int) Math.Ceiling(item.Price * (m_Percentage / 100));
+                    var discountToApply =  -(int) Math.Ceiling(item.Price * m_Percentage / 100);
                     discountedBasket.Add(string.Format("{0}:{1}% discount", m_ApplicableItemName, m_Percentage), discountToApply);
                 }
             }
