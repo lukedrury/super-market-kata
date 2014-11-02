@@ -12,7 +12,7 @@ namespace engine.tests
         [Test]
         public void EmptyBasket()
         {
-            var rule = new PercentageDiscount("item", 100);
+            var rule = new PercentageDiscount("discountedItem", 100);
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -36,7 +36,7 @@ namespace engine.tests
 
         public override Basket Apply(Basket basket)
         {
-            return null;
+            return basket;
         }
     }
 }
