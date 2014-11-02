@@ -12,5 +12,12 @@ namespace engine.tests
             var basket = new Basket();
             Assert.Throws<ArgumentOutOfRangeException>(() => basket.Add("item", 1, -1));
         }
+
+        [Test]
+        public void ThrowsWhenQuantityIsZero()
+        {
+            var basket = new Basket();
+            Assert.Throws<ArgumentOutOfRangeException>(() => basket.Add("item", 1, 0));
+        }
     }
 }
