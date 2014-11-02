@@ -116,6 +116,27 @@ namespace engine.tests
             UnitPrice = unitPrice;
         }
 
+        protected bool Equals(BasketItem other)
+        {
+            return string.Equals(Item, other.Item) && UnitPrice == other.UnitPrice;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((BasketItem) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((Item != null ? Item.GetHashCode() : 0)*397) ^ UnitPrice;
+            }
+        }
+
         public override string ToString()
         {
             return string.Format("{0}:{1}p", Item, UnitPrice);
