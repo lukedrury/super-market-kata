@@ -193,9 +193,16 @@ namespace engine.tests
 
         public int CalculatePrice(Basket basket, List<Rule> rules)
         {
+            var rulesAppliedBasket = basket;
+
+            foreach (var rule in rules)
+            {
+                rulesAppliedBasket = rule.Apply(rulesAppliedBasket);
+            }
+
             var total = 0;
 
-            foreach (var item in basket)
+            foreach (var item in rulesAppliedBasket)
             {
                 total += item.UnitPrice;
             }
