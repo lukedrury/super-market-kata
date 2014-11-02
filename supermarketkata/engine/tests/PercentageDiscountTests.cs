@@ -20,6 +20,19 @@ namespace engine.tests
             Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
         }
 
+        [Test]
+        public void BasketWithOneUnrelatedItem()
+        {
+            var rule = new PercentageDiscount("discountedItem", 100);
+            m_InputBasket.Add("apple", 1);
+
+            var returnedBasket = rule.Apply(m_InputBasket);
+
+            var expectedBasket = new Basket();
+            expectedBasket.Add("apple", 1);
+            Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
+        }
+
         [SetUp]
         public void Setup()
         {
