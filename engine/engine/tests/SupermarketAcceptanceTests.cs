@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 namespace engine.tests
@@ -193,21 +194,8 @@ namespace engine.tests
 
         public int CalculatePrice(Basket basket, List<Rule> rules)
         {
-            var rulesAppliedBasket = basket;
-
-            foreach (var rule in rules)
-            {
-                rulesAppliedBasket = rule.Apply(rulesAppliedBasket);
-            }
-
-            var total = 0;
-
-            foreach (var item in rulesAppliedBasket)
-            {
-                total += item.UnitPrice;
-            }
-
-            return total;
+            var rulesAppliedBasket = rules.Aggregate(basket, (currentBasket, rule) => rule.Apply(currentBasket));
+            return rulesAppliedBasket.Sum(item => item.UnitPrice);
         }
     }
 }
