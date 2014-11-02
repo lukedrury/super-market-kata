@@ -30,6 +30,17 @@ namespace engine.tests
             Assert.That(total, Is.EqualTo(expected));
         }
 
+        [Test]
+        public void MultipleItemsInBasket()
+        {
+            m_Basket.Add("pennySweet", 1, 3);
+
+            var total = m_Till.CalculatePrice(m_Basket);
+
+            var expected = 3;
+            Assert.That(total, Is.EqualTo(expected));
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -42,7 +53,7 @@ namespace engine.tests
     {
         private readonly IList<BasketItem> m_Items = new List<BasketItem>();
 
-        public void Add(string item, int unitPrice)
+        public void Add(string item, int unitPrice, int quantity = 1)
         {
             m_Items.Add(new BasketItem(item, unitPrice));
         }
