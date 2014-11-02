@@ -40,16 +40,16 @@ namespace engine.tests
 
     public class Basket : IEnumerable<BasketItem>
     {
-        private readonly IList<BasketItem> items = new List<BasketItem>();
+        private readonly IList<BasketItem> m_Items = new List<BasketItem>();
 
         public void Add(string item, int unitPrice)
         {
-            items.Add(new BasketItem(item, unitPrice));
+            m_Items.Add(new BasketItem(item, unitPrice));
         }
 
         public IEnumerator<BasketItem> GetEnumerator()
         {
-            return items.GetEnumerator();
+            return m_Items.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
