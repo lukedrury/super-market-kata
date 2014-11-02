@@ -13,7 +13,7 @@ namespace engine.tests
         [Test]
         public void EmptyBasket()
         {
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -25,7 +25,7 @@ namespace engine.tests
         public void BasketWithSingleUnrelatedItem()
         {
             m_InputBasket.Add("apple", 1);
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -38,7 +38,7 @@ namespace engine.tests
         public void BasketWithMultipleUnrelatedItems()
         {
             m_InputBasket.Add("apple", 1, 3);
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -51,7 +51,7 @@ namespace engine.tests
         public void BasketWithSingleRelatedItem()
         {
             m_InputBasket.Add("item", 1);
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -64,7 +64,7 @@ namespace engine.tests
         public void BasketWithTwoRelatedItems()
         {
             m_InputBasket.Add("item", 1, 2);
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -78,7 +78,7 @@ namespace engine.tests
         public void BasketWithThreeRelatedItems()
         {
             m_InputBasket.Add("item", 1, 3);
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -93,7 +93,7 @@ namespace engine.tests
         public void BasketWithFourRelatedItems()
         {
             m_InputBasket.Add("item", 1, 4);
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 
@@ -108,7 +108,7 @@ namespace engine.tests
         {
             m_InputBasket.Add("apple", 1, 3);
             m_InputBasket.Add("item", 1, 3);
-            var rule = new BuyOneGetOneFreeRule("item");
+            var rule = new BuyOneGetOneFree("item");
 
             var returnedBasket = rule.Apply(m_InputBasket);
 

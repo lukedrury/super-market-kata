@@ -3,11 +3,11 @@ using engine.items;
 
 namespace engine.rules
 {
-    public class BuyOneGetOneFreeRule : Rule
+    public class BuyOneGetOneFree : Rule
     {
         private readonly string m_Item;
 
-        public BuyOneGetOneFreeRule(string item)
+        public BuyOneGetOneFree(string item)
         {
             m_Item = item;
         }

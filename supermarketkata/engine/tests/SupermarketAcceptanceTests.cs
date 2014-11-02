@@ -47,7 +47,7 @@ namespace engine.tests
         {
             m_Basket.Add("pennySweet", 1, 2);
             var rules = new List<Rule>();
-            rules.Add(new BuyOneGetOneFreeRule("pennySweet"));
+            rules.Add(new BuyOneGetOneFree("pennySweet"));
 
             var total = m_Till.CalculatePrice(m_Basket, rules);
 
