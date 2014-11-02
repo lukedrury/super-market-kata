@@ -57,9 +57,13 @@ namespace engine.tests
 
     public class PercentageDiscount : Rule
     {
+        private readonly string m_Item;
+        private readonly int m_Percentage;
+
         public PercentageDiscount(string item, int percentage)
         {
-
+            m_Item = item;
+            m_Percentage = percentage;
         }
 
         public override Basket Apply(Basket basket)
