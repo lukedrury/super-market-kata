@@ -87,6 +87,11 @@ namespace engine.tests
         public void Add(string item, int unitPrice, int quantity = 1)
         {
             var basketItem = new BasketItem(item, unitPrice);
+            Add(basketItem, quantity);
+        }
+
+        public void Add(BasketItem basketItem, int quantity = 1)
+        {
             if (quantity < 1) throw new ArgumentOutOfRangeException("quantity", "Quantity must be greater than zero");
 
             for (var i = 0; i < quantity; i++)
