@@ -116,11 +116,13 @@ namespace engine.tests
     {
         public string Item { get; private set; }
         public int UnitPrice { get; private set; }
+        public bool UsedInOffer { get; set; }
 
-        public BasketItem(string item, int unitPrice)
+        public BasketItem(string item, int unitPrice, bool usedInOffer = false)
         {
             Item = item;
             UnitPrice = unitPrice;
+            UsedInOffer = usedInOffer;
         }
 
         protected bool Equals(BasketItem other)
