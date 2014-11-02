@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace engine.tests
@@ -6,13 +7,13 @@ namespace engine.tests
     [TestFixture]
     public class SupermarketAcceptanceTests
     {
+        private Till m_Till;
+        private Basket m_Basket;
+
         [Test]
         public void EmptyBasket()
         {
-            var till = new Till();
-            var basket = new Basket();
-
-            var total = till.CalculatePrice(basket);
+            var total = m_Till.CalculatePrice(m_Basket);
 
             var expected = 0;
             Assert.That(total, Is.EqualTo(expected));
@@ -21,14 +22,19 @@ namespace engine.tests
         [Test]
         public void SingleItemInBasket()
         {
-            var till = new Till();
-            var basket = new Basket();
-            basket.Add("pennySweet", 1);
+            m_Basket.Add("pennySweet", 1);
 
-            var total = till.CalculatePrice(basket);
+            var total = m_Till.CalculatePrice(m_Basket);
 
             var expected = 1;
             Assert.That(total, Is.EqualTo(expected));
+        }
+
+        [SetUp]
+        public void Setup()
+        {
+            m_Till = new Till();
+            m_Basket = new Basket();
         }
     }
 
