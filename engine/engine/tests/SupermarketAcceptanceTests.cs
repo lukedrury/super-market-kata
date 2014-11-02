@@ -71,7 +71,7 @@ namespace engine.tests
 
         public override Basket Apply(Basket basket)
         {
-            return null;
+            return basket;
         }
     }
 
