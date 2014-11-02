@@ -48,6 +48,22 @@ namespace engine.tests
             Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
         }
 
+        [Test]
+        public void BasketWithMultipleRelatedAndUnrelatedItems()
+        {
+            var rule = new PercentageDiscount("discountedItem", 100);
+            m_InputBasket.Add("discountedItem", 1, 3);
+            m_InputBasket.Add("apple", 1, 3);
+
+            var returnedBasket = rule.Apply(m_InputBasket);
+
+            var expectedBasket = new Basket();
+            expectedBasket.Add(new BasketItem("discountedItem", 1, true), 3);
+            expectedBasket.Add("apple", 1, 3);
+            expectedBasket.Add(string.Format("discountedItem:{0}% discount", 100), -1, 3);
+            Assert.That(returnedBasket, Is.EquivalentTo(expectedBasket));
+        }
+
         [SetUp]
         public void Setup()
         {
