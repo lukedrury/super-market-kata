@@ -52,6 +52,7 @@
     <Compile Include="rules\Rule.cs" />
     <Compile Include="tests\BasketTests.cs" />
     <Compile Include="tests\BuyOneGetOneFreeRuleTests.cs" />
+    <Compile Include="tests\PercentageDiscountTests.cs" />
     <Compile Include="tests\SupermarketAcceptanceTests.cs" />
     <Compile Include="core\Till.cs" />
   </ItemGroup>
